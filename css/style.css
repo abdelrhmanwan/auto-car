@@ -7,6 +7,11 @@
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
 }
+
+/* Added animation for smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
 header{
     position:absolute;
     top: 0;
@@ -23,6 +28,13 @@ header nav{
 }
 header nav .logo{
     width: 150px;
+    animation: logoFloat 3s ease-in-out infinite;
+}
+
+/* Logo floating animation */
+@keyframes logoFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 header nav .menu{
@@ -73,6 +85,19 @@ nav .social a i:hover{
 .hero .text{
     width: 90%;
     margin: auto;
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Hero text animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 .hero .text h4{
     font-size: 40px;
@@ -91,6 +116,13 @@ nav .social a i:hover{
     color: #dd0707;
     font-size: 80px;
     font-weight: bold;
+    animation: textGlow 2s ease-in-out infinite;
+}
+
+/* Text glow animation */
+@keyframes textGlow {
+    0%, 100% { text-shadow: 0 0 5px rgba(221, 7, 7, 0.5); }
+    50% { text-shadow: 0 0 20px rgba(221, 7, 7, 0.8); }
 }
 .hero .text p{
     color: #fff;
@@ -105,9 +137,20 @@ nav .social a i:hover{
     border-radius: 30px;
     border: 2px solid #dd0707;
     transition: 0.3s;
+    animation: buttonPulse 2s infinite;
 }
+
+/* Button pulse animation */
+@keyframes buttonPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
 .hero .text .btn:hover{
     background-color: transparent;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(221, 7, 7, 0.4);
 }
 /* TRENDING cars */
 .ctn {
@@ -130,6 +173,17 @@ nav .social a i:hover{
     margin: auto;
     max-width: 1300px;
     margin-top: 100px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .trendingHeader, .mostHeader {
@@ -156,6 +210,11 @@ nav .social a i:hover{
 
 .trendingCard .card {
     position: relative;
+    transition: all 0.3s ease;
+}
+
+.trendingCard .card:hover {
+    transform: translateY(-10px);
 }
 
 
@@ -262,6 +321,8 @@ nav .social a i:hover{
     border:1px solid linear-gradient(to bottom right, #000000, rgba(61, 61, 61, 0.47));
     background: linear-gradient(to top right, rgba(8, 8, 8, 0.882), #000000);
     color: white;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
 }
 
 .services .box-container{
@@ -274,6 +335,27 @@ nav .social a i:hover{
    padding: 2rem;
    border-radius: .5rem;
    border:0px solid #2a0407;
+   transition: all 0.3s ease;
+}
+
+.services .box-container .box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(221, 7, 7, 0.2);
+}
+
+.services .box-container .box i{
+    height: 6rem;
+    width:6rem;
+    line-height:6rem;
+    font-size: 2.5rem;
+    color: #dd0707;
+    border-radius: 50%;
+    margin-bottom:1rem;
+    transition: all 0.3s ease;
+}
+
+.services .box-container .box:hover i {
+    transform: rotateY(180deg);
 }
 
 .services .box-container .box i{
@@ -360,6 +442,14 @@ nav .social a i:hover{
     margin-top: 100px;
     display: flex;
     align-items: center;
+    background-size: 200% 200%;
+    animation: gradientMove 5s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .footer {
